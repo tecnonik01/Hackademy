@@ -15,10 +15,6 @@ namespace Hackademy.Infrastructure
         public DbSet<Event> Events { get; set; }
 
 
-        public DbSet<Course> Courses { get; set; }
-        public DbSet<Prize> Prizes { get; set; }
-
-
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -29,19 +25,6 @@ namespace Hackademy.Infrastructure
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserCourse>().HasKey(sc => new { sc.UserId, sc.CourseId });
-
-
-            modelBuilder.Entity<UserCourse>()
-    .HasOne<User>(sc => sc.User)
-    .WithMany(s => s.UserCourses)
-    .HasForeignKey(sc => sc.UserId);
-
-
-            modelBuilder.Entity<UserCourse>()
-                .HasOne<Course>(sc => sc.Course)
-                .WithMany(s => s.UserCourses)
-                .HasForeignKey(sc => sc.CourseId);
         }
 
     }

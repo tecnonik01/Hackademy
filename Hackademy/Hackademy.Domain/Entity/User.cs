@@ -21,7 +21,6 @@ namespace Hackademy.Domain.Entity
         public double Point { get; set; }
         public Guid Image { get; set; }
         public string Bio { get; set; }
-        public IList<UserCourse> UserCourses { get; set; }
-        public IList<Team> Teams { get; set; }
+       public IList<Team> Teams { get; set; }
     }
 }
