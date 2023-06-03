@@ -15,9 +15,11 @@ namespace Hackademy.API.Controllers
     public class TeamsController : ControllerBase
     {
         private HackademyContext HackademyContext { get; set; }
-        public TeamsController( HackademyContext _hackademyContext)
+        private CurrentUserService CurrentUserService { get; set; }
+        public TeamsController( HackademyContext _hackademyContext, CurrentUserService currentUserService)
         {
             HackademyContext = _hackademyContext;
+            CurrentUserService = currentUserService;
         }
         [HttpGet("GetAllTeams")]
         public async Task<IActionResult> GetAllTeams()

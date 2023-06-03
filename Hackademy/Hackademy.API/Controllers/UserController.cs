@@ -15,10 +15,12 @@ namespace Hackademy.API.Controllers
     {
         private HackademyContext HackademyContext { get; set; }
         private TokenHelper TokenHelper { get; set; }
-        public UserController(TokenHelper _tokenHelper, HackademyContext _hackademyContext)
+        private CurrentUserService CurrentUserService { get; set; }
+        public UserController(TokenHelper _tokenHelper, HackademyContext _hackademyContext, CurrentUserService currentUserService)
         {
             HackademyContext= _hackademyContext;
             TokenHelper = _tokenHelper;
+            CurrentUserService = currentUserService;
         }
         [HttpPost("CreateUser")]
         public async Task<IActionResult> CreateUser()

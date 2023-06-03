@@ -16,9 +16,11 @@ namespace Hackademy.API.Controllers
     public class EventsController : ControllerBase
     {
         private HackademyContext HackademyContext { get; set; }
-        public EventsController( HackademyContext _hackademyContext)
+        private CurrentUserService CurrentUserService { get; set; }
+        public EventsController( HackademyContext _hackademyContext, CurrentUserService currentUserService)
         {
             HackademyContext = _hackademyContext;
+            CurrentUserService = currentUserService;
         }
         [HttpGet("GetAllEvents")]
         public async Task<IActionResult> GetAllEvents()

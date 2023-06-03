@@ -16,9 +16,12 @@ namespace Hackademy.API.Controllers
     public class CareersController : ControllerBase
     {
         private HackademyContext HackademyContext { get; set; }
-        public CareersController( HackademyContext _hackademyContext)
+
+        private CurrentUserService CurrentUserService { get; set; }
+        public CareersController( HackademyContext _hackademyContext, CurrentUserService currentUserService)
         {
             HackademyContext = _hackademyContext;
+            CurrentUserService = currentUserService;
         }
         [HttpGet("GetAllCareers")]
         public async Task<IActionResult> GetAllCareers()

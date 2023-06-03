@@ -15,9 +15,11 @@ namespace Hackademy.API.Controllers
     public class TechLabsController : ControllerBase
     {
         private HackademyContext HackademyContext { get; set; }
-        public TechLabsController( HackademyContext _hackademyContext)
+        private CurrentUserService CurrentUserService { get; set; }
+        public TechLabsController( HackademyContext _hackademyContext, CurrentUserService currentUserService)
         {
             HackademyContext = _hackademyContext;
+            CurrentUserService = currentUserService;
         }
         [HttpGet("GetAllTechLabs")]
         public async Task<IActionResult> GetAllTechLabs()
