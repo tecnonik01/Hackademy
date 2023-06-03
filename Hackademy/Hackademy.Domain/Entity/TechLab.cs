@@ -10,7 +10,8 @@ namespace Hackademy.Domain.Entity
     {
         public int TechLabId { get; set; }
         public string Name { get; set; }
-        public IList<Team> teams { get; set; }
+        public IList<Team> Teams { get; set; }
+        public IList<Career> Careers { get; set; }
         public bool IsDeleted { get; set; }
     }
 }

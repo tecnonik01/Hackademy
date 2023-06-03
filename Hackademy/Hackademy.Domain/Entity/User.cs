@@ -15,7 +15,6 @@ namespace Hackademy.Domain.Entity
         public string Email { get; set; }
         public DateTime Birthdate { get; set; }
         public string City { get; set; }
-
         public string Street { get; set; }
         public string StreetNumber { get; set; }
         public double Point { get; set; }
