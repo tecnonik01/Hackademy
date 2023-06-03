@@ -1,5 +1,6 @@
 ﻿using Hackademy.Infrastructure;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -9,6 +10,7 @@ namespace Hackademy.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private HackademyContext HackademyContext { get; set; }
@@ -25,6 +27,7 @@ namespace Hackademy.API.Controllers
         }
 
         [HttpPost("Login")]
+        [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginRequest LoginRequest)
         {
             var user= HackademyContext.Users.FirstOrDefault(x => x.Email.Equals(LoginRequest.Email) && x.Password.Equals(LoginRequest.Password));
@@ -50,6 +53,7 @@ namespace Hackademy.API.Controllers
             return Ok(users);
         }
         [HttpPost("Registration")]
+        [AllowAnonymous]
         public async Task<IActionResult> Registration([FromBody] RegistrationRequest RegistrationRequest)
         {
             var User = new Domain.Entity.User()
