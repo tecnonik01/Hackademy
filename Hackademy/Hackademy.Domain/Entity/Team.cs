@@ -14,5 +14,6 @@ namespace Hackademy.Domain.Entity
         public int TechLabId { get; set; }
         public TechLab TechLab { get; set; }
         public bool IsDeleted { get; set; }
+        public IList<Event> Events { get; set; }
     }
 }

@@ -12,10 +12,11 @@ namespace Hackademy.Infrastructure
         public DbSet<User> Users { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<TechLab> TechLabs { get; set; }
+        public DbSet<Event> Events { get; set; }
+
 
         public DbSet<Course> Courses { get; set; }
         public DbSet<Prize> Prizes { get; set; }
-        public DbSet<Event> Events { get; set; }
 
 
 
